@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../../js/ios-orientationchange-fix.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-shadow: 0;
+    }
+
+    .poster {
+      widows: 100%;
+      margin: auto;
+      text-align: center;
+      background-color: gray;
+      padding: 10px;
+    }
+
+    .p {
+      color: #444;
+      background-color: aliceblue;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="p">
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci facere animi sed cupiditate modi. Accusamus
+      expedita delectus aliquam deleniti, quisquam vero, nihil repellendus dolores ducimus labore quam, tempora omnis
+      ratione voluptatum? Cupiditate minus maxime totam quos soluta, esse reiciendis magni similique atque modi quaerat
+      unde doloremque dicta! Odit officia beatae eum dolores explicabo consectetur cum inventore obcaecati. Ab nostrum
+      nulla, facilis voluptatum libero porro dolorum quia, vitae fugit non ex expedita totam tenetur ratione illo
+      voluptatem velit earum ea dolore deserunt culpa amet? Quisquam nihil, excepturi quaerat expedita et illum autem
+      recusandae, deleniti laboriosam nostrum velit distinctio numquam necessitatibus cumque sed
+      libero praesentium voluptate sunt illo, porro quia error!
+    </p>
+  </div>
+  <div class="poster">
+    <img src="pic-1.PNG" alt="Planets" usemap="#planetmap" id='imga'>
+    <map id='map' name="planetmap">
+      <area shape="rect" coords="-1,1074,47,1038" alt="Sun" href="#" id="area1">
+    </map>
+  </div>
+
+  <script>
+    let num = 2;
+    let cords = {
+      2: '44,440,248,472',
+      3: '67,628,235,605'
+    }
+
+    document.getElementById('map').addEventListener('click', (e) => {
+      document.getElementById('imga').setAttribute('src', `pic-${num}.PNG`)
+      e.target.coords = cords[num]
+      num++
+    })
+
+
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.rwdImageMaps.min.js"></script>
+  <script>
+    $(document).ready(function (e) {
+      $('img[usemap]').rwdImageMaps();
+    });
+  </script>
+</body>
+
+</html>
